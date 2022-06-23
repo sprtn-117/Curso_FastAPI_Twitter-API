@@ -89,12 +89,12 @@ def delete_a_user():
     pass
 
 
-@app.post(
-    path="/signup",
+@app.put(
+    path="/users/{user_id}/update",
     response_model=User,
-    status_code=status.HTTP_201_CREATED,
-    summary="Register a user",
+    status_code=status.HTTP_200_OK,
+    summary="Update a user",
     tags=["Users"]
 )
-def signup():
+def update_a_user():
     pass
