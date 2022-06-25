@@ -56,20 +56,20 @@ class Tweet(BaseModel):
 )
 def signup(user: UserRegister = Body(...)):
     """
-    Signup
+    # **Signup**
 
     This path operation register a user in the app
 
-    Parameters:
-        -Request body parameter
+        Parameters:
+            -Request body parameter
             -user: UserRegister
 
-    Return a json with the basic user information:
-        -user_id: UUID
-        -email: EmailStr
-        -first_name: str
-        -last_name: str
-        -birth_date: date
+        Return a json with the basic user information:
+            -user_id: UUID
+            -email: EmailStr
+            -first_name: str
+            -last_name: str
+            -birth_date: date
     """
     with open("users.json", "r+", encoding="utf-8") as file:
         result = json.load(file)
@@ -102,7 +102,22 @@ def login():
     tags=["Users"]
 )
 def show_all_users():
-    pass
+    """
+    # **Show all users**
+
+    This path operation show all users in the app
+
+        Parameters: None
+        
+        Return a json list with all the users in the app:
+            -user_id: UUID
+            -email: EmailStr
+            -first_name: str
+            -last_name: str
+            -birth_date: date
+    """
+    with open("users.json", "r", encoding="utf-8") as file:
+        return json.load(file)
 
 
 @app.get(
